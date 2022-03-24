@@ -16,7 +16,6 @@ function createGrid() {
     for (let i = 0; i < 9; i++) {
         const row = document.createElement("div");
         row.classList.add("row-div");
-        row.classList.add("write");
         container.appendChild(row); 
     }
     markGrid();
@@ -24,7 +23,7 @@ function createGrid() {
 
 //On Clock Play
 function markGrid() {
-    document.querySelectorAll(".write").forEach(item => {
+    document.querySelectorAll(".row-div").forEach(item => {
         item.addEventListener("click", event => {
             //item.style.cssText = "background-color: black;"
             item.textContent = "X";

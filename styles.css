@@ -15,22 +15,20 @@ html, body {
     grid-template-columns: repeat(3, 1fr);
     border-style: solid;
     border-color: black;
+    grid-template-rows: repeat(3, minmax(10em, auto));
 }
 
 .row-div {
-    margin: 0;
-    border: 0;
-    padding: 0;
     background-color: white;
     border-style: solid;
     border-color: black;
     border-width:thin;  
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}   
-
-.write {
+    font-size: 3em;
     
-}
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+   
+    margin: 0;
+    padding:0; 
+}   
