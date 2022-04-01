@@ -1,29 +1,31 @@
-//Gameboard
-let Gameboard = {
-    gameboard: [0, 0, 0, 0, 0, 0, 0, 0, 0]
-}
-
-let playerOne = {
-
-}
-
-let playerTwo = {
-
-}
-
-let gameFlow = {
-
-}
-
-//Header
-const head = document.createElement("h1");
-head.textContent = "TIC TAC TOE";
-document.body.appendChild(head);
-
-
-
 //Create Grid IFFE
 (function createGrid() {
+    //Header
+    const head = document.createElement("h1");
+    head.textContent = "TIC TAC TOE";
+    document.body.appendChild(head);
+
+
+    //Gameboard
+    let Gameboard = {
+        gameboard: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    };
+
+    let playerOne = {
+        sign: "Dog",
+        text: () => {footer.textContent = "Hi";}
+    };
+
+    let playerTwo = {
+        sign: "O"
+    };
+
+    let gameFlow = {
+        start: () => {
+            
+        },
+        yo: () => {console.log("yo dog")}
+    };
 
     //Container
     const container = document.createElement("div");
@@ -41,7 +43,7 @@ document.body.appendChild(head);
 
     document.querySelectorAll(".box-0").forEach(item => {
         item.addEventListener("click", event => {
-            Gameboard.gameboard[0] = "X";
+            Gameboard.gameboard[0] = playerOne.sign;
             item.textContent = Gameboard.gameboard[0];
         })
     });
@@ -99,7 +101,24 @@ document.body.appendChild(head);
             item.textContent = Gameboard.gameboard[9];
         })
     });
+        
+    //Click Container to start game
+    document.querySelectorAll(".container").forEach(item => {
+        item.addEventListener("click", event => {
+            gameFlow.yo;
+           
+        })
+    });
+
+    //Footer
+    const footer = document.createElement("h3");
+            footer.textContent = "START GAME";
+            document.body.appendChild(footer);
+            console.log("Start")
 })();
+
+
+
 
 // //On Clock Play
 // function markGrid() {
