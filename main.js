@@ -23,6 +23,21 @@
     };
 
     let gameFlow = {
+
+        restart: () => {
+            Gameboard.gameboard = ["", "", "", "", "", "", "", "", ""]
+            Gameboard.checker = [true, true, true, true, true, true, true, true, true]
+            gameFlow.start();
+            gameFlow.startStatus = false;
+        },
+
+        scoreGame: () => {
+            
+            if(Gameboard.checker.filter(Boolean)){
+                
+            }
+        },
+
         startStatus: true,
 
         start: () => {
@@ -38,6 +53,7 @@
                     gameFlow.switchPlayer();
                     gameFlow.turnTracker();
                     Gameboard.checker[0] = false;
+                    gameFlow.scoreGame();
                     }
                 })
             });
@@ -49,6 +65,7 @@
                     gameFlow.switchPlayer();
                     gameFlow.turnTracker();
                     Gameboard.checker[1] = false;
+                    gameFlow.scoreGame();
                     }
                 })
             });
@@ -60,6 +77,7 @@
                     gameFlow.switchPlayer();
                     gameFlow.turnTracker();
                     Gameboard.checker[2] = false;
+                    gameFlow.scoreGame();
                     }
                 })
             });
@@ -71,6 +89,7 @@
                     gameFlow.switchPlayer();
                     gameFlow.turnTracker();
                     Gameboard.checker[3] = false;
+                    gameFlow.scoreGame();
                     }
                 })
             });
@@ -82,6 +101,7 @@
                     gameFlow.switchPlayer();
                     gameFlow.turnTracker();
                     Gameboard.checker[4] = false;
+                    gameFlow.scoreGame();
                     }
                 })
             });
@@ -93,6 +113,7 @@
                     gameFlow.switchPlayer();
                     gameFlow.turnTracker();
                     Gameboard.checker[5] = false;
+                    gameFlow.scoreGame();
                     }
                 })
             });
@@ -104,6 +125,7 @@
                     gameFlow.switchPlayer();
                     gameFlow.turnTracker();
                     Gameboard.checker[6] = false;
+                    gameFlow.scoreGame();
                     }
                 })
             });
@@ -115,6 +137,7 @@
                     gameFlow.switchPlayer();
                     gameFlow.turnTracker();
                     Gameboard.checker[7] = false;
+                    gameFlow.scoreGame();
                     }
                 })
             });
@@ -126,6 +149,7 @@
                     gameFlow.switchPlayer();
                     gameFlow.turnTracker();
                     Gameboard.checker[8] = false;
+                    gameFlow.scoreGame();
                     }
                 })
             });
@@ -137,6 +161,7 @@
                     gameFlow.switchPlayer();
                     gameFlow.turnTracker();
                     Gameboard.checker[9] = false;
+                    gameFlow.scoreGame();
                     }
                 })
             });
@@ -200,20 +225,15 @@
     const inst = document.createElement("h4");
     inst.textContent = "R E S E T - (CTRL + R)";
     document.body.appendChild(inst);
-
     const reset = document;
 
     reset.addEventListener("keydown", (event) => {
         if (event.ctrlKey && event.key === 'r') {
             document.querySelectorAll(".write").forEach(item => {
-                //item.style.cssText = "background-color: white;"
-                Gameboard.gameboard = ["", "", "", "", "", "", "", "", ""]
-                gameFlow.start();
-                gameFlow.startStatus = false;
+                gameFlow.restart();
             })
         }
     });
-
 
 })();
 
