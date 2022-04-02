@@ -5,7 +5,6 @@
     head.textContent = "TIC - TAC - TOE";
     document.body.appendChild(head);
 
-
     //Gameboard
     let Gameboard = {
         gameboard: ["", "", "", "", "", "", "", "", ""],
@@ -31,10 +30,58 @@
             gameFlow.startStatus = false;
         },
 
-        scoreGame: () => {
-            
-            if(Gameboard.checker.filter(Boolean)){
-                
+        scoreGame:  () => {
+            if (Gameboard.gameboard[0] === "X" && Gameboard.gameboard[1] === "X" && Gameboard.gameboard[2] === "X") {
+                footer.textContent = "Player One Wins";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
+            } else if (Gameboard.gameboard[0] === "O" && Gameboard.gameboard[1] === "O" && Gameboard.gameboard[2] === "O") {
+                footer.textContent = "Player Two Wins";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
+            } else if (Gameboard.gameboard[3] === "X" && Gameboard.gameboard[4] === "X" && Gameboard.gameboard[5] === "X") {
+                footer.textContent = "Player One Wins";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
+            } else if (Gameboard.gameboard[3] === "O" && Gameboard.gameboard[4] === "O" && Gameboard.gameboard[5] === "O") {
+                footer.textContent = "Player Two Wins";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
+            }else if (Gameboard.gameboard[6] === "X" && Gameboard.gameboard[7] === "X" && Gameboard.gameboard[8] === "X") {
+                footer.textContent = "Player One Wins";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
+            }else if (Gameboard.gameboard[6] === "O" && Gameboard.gameboard[7] === "O" && Gameboard.gameboard[8] === "O") {
+                footer.textContent = "Player Two Wins";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
+            } else if (Gameboard.gameboard[0] === "X" && Gameboard.gameboard[3] === "X" && Gameboard.gameboard[6] === "X") {
+                footer.textContent = "Player One Wins";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
+            } else if (Gameboard.gameboard[0] === "O" && Gameboard.gameboard[3] === "O" && Gameboard.gameboard[6] === "O") {
+                footer.textContent = "Player Two Wins";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
+            }else if (Gameboard.gameboard[1] === "X" && Gameboard.gameboard[4] === "X" && Gameboard.gameboard[7] === "X") {
+                footer.textContent = "Player One Wins";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
+            } else if (Gameboard.gameboard[1] === "O" && Gameboard.gameboard[4] === "O" && Gameboard.gameboard[7] === "O") {
+                footer.textContent = "Player Two Wins";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
+            }else if (Gameboard.gameboard[2] === "X" && Gameboard.gameboard[5] === "X" && Gameboard.gameboard[8] === "X") {
+                footer.textContent = "Player One Wins";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
+            } else if (Gameboard.gameboard[2] === "O" && Gameboard.gameboard[5] === "O" && Gameboard.gameboard[8] === "O") {
+                footer.textContent = "Player Two Wins";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
+            }else if (Gameboard.gameboard[0] === "X" && Gameboard.gameboard[4] === "X" && Gameboard.gameboard[8] === "X") {
+                footer.textContent = "Player One Wins";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
+            }else if (Gameboard.gameboard[0] === "O" && Gameboard.gameboard[4] === "O" && Gameboard.gameboard[8] === "O") {
+                footer.textContent = "Player Two Wins";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
+            }else if (Gameboard.gameboard[2] === "X" && Gameboard.gameboard[4] === "X" && Gameboard.gameboard[6] === "X") {
+                footer.textContent = "Player One Wins";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
+            }else if (Gameboard.gameboard[2] === "O" && Gameboard.gameboard[4] === "O" && Gameboard.gameboard[6] === "O") {
+                footer.textContent = "Player Two Wins";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
+            }else if (Gameboard.checker.every(v => v === false)) {
+                footer.textContent = "Tie Game";
+                Gameboard.checker = [false, false, false, false, false, false, false, false, false];
             }
         },
 
@@ -47,124 +94,113 @@
             //DOM Marker Placement
             document.querySelectorAll(".box-0").forEach(item => {
                 item.addEventListener("click", event => {
-                    if(Gameboard.checker[0] === true){
-                    Gameboard.gameboard[0] = gameFlow.playerSignProp;
-                    item.textContent = Gameboard.gameboard[0];
-                    gameFlow.switchPlayer();
-                    gameFlow.turnTracker();
-                    Gameboard.checker[0] = false;
-                    gameFlow.scoreGame();
+                    if (Gameboard.checker[0] === true) {
+                        Gameboard.gameboard[0] = gameFlow.playerSignProp;
+                        item.textContent = Gameboard.gameboard[0];
+                        gameFlow.switchPlayer();
+                        gameFlow.turnTracker();
+                        Gameboard.checker[0] = false;
+                        gameFlow.scoreGame();
                     }
                 })
             });
             document.querySelectorAll(".box-1").forEach(item => {
                 item.addEventListener("click", event => {
-                    if(Gameboard.checker[1] === true){
-                    Gameboard.gameboard[1] = gameFlow.playerSignProp;
-                    item.textContent = Gameboard.gameboard[1];
-                    gameFlow.switchPlayer();
-                    gameFlow.turnTracker();
-                    Gameboard.checker[1] = false;
-                    gameFlow.scoreGame();
+                    if (Gameboard.checker[1] === true) {
+                        Gameboard.gameboard[1] = gameFlow.playerSignProp;
+                        item.textContent = Gameboard.gameboard[1];
+                        gameFlow.switchPlayer();
+                        gameFlow.turnTracker();
+                        Gameboard.checker[1] = false;
+                        gameFlow.scoreGame();
                     }
                 })
             });
             document.querySelectorAll(".box-2").forEach(item => {
                 item.addEventListener("click", event => {
-                    if(Gameboard.checker[2] === true){
-                    Gameboard.gameboard[2] = gameFlow.playerSignProp;
-                    item.textContent = Gameboard.gameboard[2];
-                    gameFlow.switchPlayer();
-                    gameFlow.turnTracker();
-                    Gameboard.checker[2] = false;
-                    gameFlow.scoreGame();
+                    if (Gameboard.checker[2] === true) {
+                        Gameboard.gameboard[2] = gameFlow.playerSignProp;
+                        item.textContent = Gameboard.gameboard[2];
+                        gameFlow.switchPlayer();
+                        gameFlow.turnTracker();
+                        Gameboard.checker[2] = false;
+                        gameFlow.scoreGame();
                     }
                 })
             });
             document.querySelectorAll(".box-3").forEach(item => {
                 item.addEventListener("click", event => {
-                    if(Gameboard.checker[3] === true){
-                    Gameboard.gameboard[3] = gameFlow.playerSignProp;
-                    item.textContent = Gameboard.gameboard[3];
-                    gameFlow.switchPlayer();
-                    gameFlow.turnTracker();
-                    Gameboard.checker[3] = false;
-                    gameFlow.scoreGame();
+                    if (Gameboard.checker[3] === true) {
+                        Gameboard.gameboard[3] = gameFlow.playerSignProp;
+                        item.textContent = Gameboard.gameboard[3];
+                        gameFlow.switchPlayer();
+                        gameFlow.turnTracker();
+                        Gameboard.checker[3] = false;
+                        gameFlow.scoreGame();
                     }
                 })
             });
             document.querySelectorAll(".box-4").forEach(item => {
                 item.addEventListener("click", event => {
-                    if(Gameboard.checker[4] === true){
-                    Gameboard.gameboard[4] = gameFlow.playerSignProp;
-                    item.textContent = Gameboard.gameboard[4];
-                    gameFlow.switchPlayer();
-                    gameFlow.turnTracker();
-                    Gameboard.checker[4] = false;
-                    gameFlow.scoreGame();
+                    if (Gameboard.checker[4] === true) {
+                        Gameboard.gameboard[4] = gameFlow.playerSignProp;
+                        item.textContent = Gameboard.gameboard[4];
+                        gameFlow.switchPlayer();
+                        gameFlow.turnTracker();
+                        Gameboard.checker[4] = false;
+                        gameFlow.scoreGame();
                     }
                 })
             });
             document.querySelectorAll(".box-5").forEach(item => {
                 item.addEventListener("click", event => {
-                    if(Gameboard.checker[5] === true){
-                    Gameboard.gameboard[5] = gameFlow.playerSignProp;
-                    item.textContent = Gameboard.gameboard[5];
-                    gameFlow.switchPlayer();
-                    gameFlow.turnTracker();
-                    Gameboard.checker[5] = false;
-                    gameFlow.scoreGame();
+                    if (Gameboard.checker[5] === true) {
+                        Gameboard.gameboard[5] = gameFlow.playerSignProp;
+                        item.textContent = Gameboard.gameboard[5];
+                        gameFlow.switchPlayer();
+                        gameFlow.turnTracker();
+                        Gameboard.checker[5] = false;
+                        gameFlow.scoreGame();
                     }
                 })
             });
             document.querySelectorAll(".box-6").forEach(item => {
                 item.addEventListener("click", event => {
-                    if(Gameboard.checker[6] === true){
-                    Gameboard.gameboard[6] = gameFlow.playerSignProp;
-                    item.textContent = Gameboard.gameboard[6];
-                    gameFlow.switchPlayer();
-                    gameFlow.turnTracker();
-                    Gameboard.checker[6] = false;
-                    gameFlow.scoreGame();
+                    if (Gameboard.checker[6] === true) {
+                        Gameboard.gameboard[6] = gameFlow.playerSignProp;
+                        item.textContent = Gameboard.gameboard[6];
+                        gameFlow.switchPlayer();
+                        gameFlow.turnTracker();
+                        Gameboard.checker[6] = false;
+                        gameFlow.scoreGame();
                     }
                 })
             });
             document.querySelectorAll(".box-7").forEach(item => {
                 item.addEventListener("click", event => {
-                    if(Gameboard.checker[7] === true){
-                    Gameboard.gameboard[7] = gameFlow.playerSignProp;
-                    item.textContent = Gameboard.gameboard[7];
-                    gameFlow.switchPlayer();
-                    gameFlow.turnTracker();
-                    Gameboard.checker[7] = false;
-                    gameFlow.scoreGame();
+                    if (Gameboard.checker[7] === true) {
+                        Gameboard.gameboard[7] = gameFlow.playerSignProp;
+                        item.textContent = Gameboard.gameboard[7];
+                        gameFlow.switchPlayer();
+                        gameFlow.turnTracker();
+                        Gameboard.checker[7] = false;
+                        gameFlow.scoreGame();
                     }
                 })
             });
             document.querySelectorAll(".box-8").forEach(item => {
                 item.addEventListener("click", event => {
-                    if(Gameboard.checker[8] === true){
-                    Gameboard.gameboard[8] = gameFlow.playerSignProp;
-                    item.textContent = Gameboard.gameboard[8];
-                    gameFlow.switchPlayer();
-                    gameFlow.turnTracker();
-                    Gameboard.checker[8] = false;
-                    gameFlow.scoreGame();
+                    if (Gameboard.checker[8] === true) {
+                        Gameboard.gameboard[8] = gameFlow.playerSignProp;
+                        item.textContent = Gameboard.gameboard[8];
+                        gameFlow.switchPlayer();
+                        gameFlow.turnTracker();
+                        Gameboard.checker[8] = false;
+                        gameFlow.scoreGame();
                     }
                 })
             });
-            document.querySelectorAll(".box-9").forEach(item => {
-                item.addEventListener("click", event => {
-                    if(Gameboard.checker[9] === true){
-                    Gameboard.gameboard[9] = gameFlow.playerSignProp;
-                    item.textContent = Gameboard.gameboard[9];
-                    gameFlow.switchPlayer();
-                    gameFlow.turnTracker();
-                    Gameboard.checker[9] = false;
-                    gameFlow.scoreGame();
-                    }
-                })
-            });
+
         }, // End gameFLow.start property
 
         turnTracker: () => {
@@ -197,7 +233,7 @@
     document.body.appendChild(container);
 
     //Div Squares
-    for (let i = 0; i <= 9; i++) {
+    for (let i = 0; i <= 8; i++) {
         const row = document.createElement("div");
         row.classList.add("row-div");
         row.classList.add(`box-${i}`);
